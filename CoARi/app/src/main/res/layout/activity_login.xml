@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:src="@drawable/ic_deu_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAppname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/deu"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <LinearLayout
+        android:id="@+id/layoutKakaoLogin"
+        style="@style/loginLayout"
+        android:background="@drawable/custom_kakao_button"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/layoutGoogleLogin"
+        app:layout_constraintEnd_toEndOf="@+id/layoutGoogleLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/layoutGoogleLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppname"
+        app:layout_constraintVertical_bias="0.1">
+
+        <ImageView
+            style="@style/loginImage"
+            android:src="@drawable/kakao_symbol" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/kakao_brown" />
+
+        <TextView
+            style="@style/loginText"
+            android:fontFamily="@font/noto_sans_cjk_kr_black"
+            android:text="@string/kakao_login" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutGoogleLogin"
+        style="@style/loginLayout"
+        android:background="@drawable/custom_google_button"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/layoutGuestLogin"
+        app:layout_constraintEnd_toEndOf="@+id/layoutGuestLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/layoutGuestLogin"
+        app:layout_constraintTop_toBottomOf="@+id/layoutKakaoLogin"
+        app:layout_constraintVertical_bias="0.1">
+
+        <ImageView
+            style="@style/loginImage"
+            android:background="@color/white"
+            android:src="@drawable/google_symbol" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/google_blue" />
+
+        <TextView
+            style="@style/loginText"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/google_login" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutGuestLogin"
+        style="@style/loginLayout"
+        android:background="@drawable/custom_guest_button"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutGoogleLogin"
+        app:layout_constraintVertical_bias="0.1">
+
+        <ImageView
+            style="@style/loginImage"
+            android:src="@drawable/ic_user" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            style="@style/loginText"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/guest_login"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

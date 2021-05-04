@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.cse.coari.fragment.CameraFragment"
+        android:label="camera"
+        tools:layout="@layout/fragment_camera">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.cse.coari.fragment.MainFragment"
+        android:label="main"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_ThirdFragment"
+            app:destination="@id/ThirdFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.cse.coari.fragment.AlarmFragment"
+        android:label="alarm"
+        tools:layout="@layout/fragment_alarm">
+
+        <action
+            android:id="@+id/action_ThirdFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+</navigation>

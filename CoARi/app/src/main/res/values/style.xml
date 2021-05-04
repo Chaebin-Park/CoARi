@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="loginLayout">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="loginImage">
+        <item name="android:layout_width">18dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="loginText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="mainLogoImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">36dp</item>
+    </style>
+
+    <style name="mainButtonLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="mainButton">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="mainButtonImage">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="scaleType">fitCenter</item>
+    </style>
+
+    <style name="mainButtonText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/noto_sans_cjk_kr_bold</item>
+    </style>
+
+    <style name="exitPopupButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">53dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/popup_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/popup_blue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="youtubeButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+
+    <!-- Notice -->
+    <LinearLayout
+        android:padding="24dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtText"
+            android:text="@string/exit"
+            android:textSize="15sp"
+            android:textColor="#000"
+            android:alpha="0.87"
+            android:gravity="center"
+            android:layout_marginBottom="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <!-- Notice -->
+
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- YES -->
+        <Button
+            style="@style/exitPopupButton"
+            android:id="@+id/btn_exit"
+            android:text="@string/yes"/>
+
+        <!-- NO -->
+        <Button
+            style="@style/exitPopupButton"
+            android:id="@+id/btn_stay"
+            android:text="@string/no"/>
+    </LinearLayout>
+    <!--// 닫기 버튼 -->
+</LinearLayout>

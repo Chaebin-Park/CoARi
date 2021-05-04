@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/custom_toolbar" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        style="@style/mainLogoImage"
+
+        android:background="@color/white"
+        android:src="@drawable/ic_deu_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="@style/mainButtonLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        <!--  학과소개 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:clickable="true"
+            android:id="@+id/layout_info"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_info" />
+
+            <TextView
+                style="@style/mainButtonText"
+                android:text="학과소개" />
+        </LinearLayout>
+
+        <!--  공지사항 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:clickable="true"
+            android:id="@+id/layout_notice"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_notice" />
+
+            <TextView
+                style="@style/mainButtonText"
+                android:text="공지사항" />
+        </LinearLayout>
+
+        <!--  학과소개 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:clickable="true"
+            android:id="@+id/layout_news"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_news" />
+
+            <TextView
+                style="@style/mainButtonText"
+                android:text="학과소식" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <!--  버튼 2열  -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        style="@style/mainButtonLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        <!--  교수진 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:id="@+id/layout_prof"
+            android:clickable="true"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_prof" />
+             <TextView
+                 style="@style/mainButtonText"
+                 android:text="교수진" />
+        </LinearLayout>
+
+        <!--  교육과정 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:id="@+id/layout_curr"
+            android:clickable="true"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_curr" />
+
+            <TextView
+                style="@style/mainButtonText"
+                android:text="교육과정"/>
+        </LinearLayout>
+
+        <!--  진로 및 취업 버튼 레이아웃  -->
+        <LinearLayout
+            style="@style/mainButton"
+            android:id="@+id/layout_emp"
+            android:clickable="true"
+            android:background="@drawable/custom_main_button">
+
+            <ImageView
+                style="@style/mainButtonImage"
+                android:src="@drawable/ic_emp" />
+
+            <TextView
+                style="@style/mainButtonText"
+                android:text="진로 및 취업" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--  버튼 3열  -->
+
+    <Button
+        android:id="@+id/btn_tour"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_main_button"
+        android:text="학교 둘러보기"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+<!--      버튼 4열  -->
+
+<!--      홈페이지, 캠퍼스맵 버튼 레이아웃  -->
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="110dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/custom_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tour"
+        app:layout_constraintVertical_bias="0.234">
+
+        <TextView
+            android:id="@+id/tv_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="홈페이지"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="270dp"
+            android:layout_height="0.7dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="#0078D4" />
+
+        <TextView
+            android:id="@+id/tv_campus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="캠퍼스 맵"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
