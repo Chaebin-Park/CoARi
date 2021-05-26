@@ -111,6 +111,14 @@ public class ArActivity extends AppCompatActivity implements GLSurfaceView.Rende
     surfaceView = (GLSurfaceView)findViewById(R.id.surfaceview);
     displayRotationHelper = new DisplayRotationHelper(/*context=*/ this);
 
+    if(session != null) {
+      try {
+        session.resume();
+      } catch (CameraNotAvailableException e) {
+        e.printStackTrace();
+      }
+    }
+
     // Set up renderer.
     surfaceView.setPreserveEGLContextOnPause(true);
     surfaceView.setEGLContextClientVersion(2);
@@ -202,9 +210,9 @@ public class ArActivity extends AppCompatActivity implements GLSurfaceView.Rende
       // Note that the order matters - GLSurfaceView is paused first so that it does not try
       // to query the session. If Session is paused before GLSurfaceView, GLSurfaceView may
       // still call session.update() and get a SessionPausedException.
-      displayRotationHelper.onPause();
-      surfaceView.onPause();
-      session.pause();
+//      displayRotationHelper.onPause();
+//      surfaceView.onPause();
+//      session.pause();
     }
   }
 
@@ -318,8 +326,9 @@ public class ArActivity extends AppCompatActivity implements GLSurfaceView.Rende
           String indexing = Integer.toString(augmentedImage.getIndex());
 
           Intent intent = new Intent(getApplicationContext(), SubActivity.class);
+          intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
           intent.putExtra("info", indexing);
-          session = null;
+//          session.pause();
           startActivity(intent);//액티비티 띄우기
 
           break;
@@ -365,6 +374,12 @@ public class ArActivity extends AppCompatActivity implements GLSurfaceView.Rende
       return true;
     }
 
-
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+      displayRotationHelper.onPause();
+      surfaceView.onPause();
+      session.pause();
+  }
 }
 

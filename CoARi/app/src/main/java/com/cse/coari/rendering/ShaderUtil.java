@@ -1,5 +1,6 @@
 /*
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * Copyright 2017 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -36,7 +37,7 @@ public class ShaderUtil {
    * @return The shader object handler.
    */
   public static int loadGLShader(
-      String tag, Context context, int type, String filename, Map<String, Integer> defineValuesMap)
+          String tag, Context context, int type, String filename, Map<String, Integer> defineValuesMap)
       throws IOException {
     // Load shader source code.
     String code = readShaderFileFromAssets(context, filename);
@@ -106,7 +107,7 @@ public class ShaderUtil {
   private static String readShaderFileFromAssets(Context context, String filename)
       throws IOException {
     try (InputStream inputStream = context.getAssets().open(filename);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
       StringBuilder sb = new StringBuilder();
       String line;
       while ((line = reader.readLine()) != null) {

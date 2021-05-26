@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.EduGoalFragment">
+
+        <LinearLayout
+            android:id="@+id/edugoal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/largeText"
+                android:text="교육목표" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/deu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edugoal_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_checked_blue" />
+
+                <TextView
+                    style="@style/basicText"
+                    android:text="@string/edu_goal1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_checked_blue" />
+
+                <TextView
+                    style="@style/basicText"
+                    android:text="@string/edu_goal2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_checked_blue" />
+
+                <TextView
+                    style="@style/basicText"
+                    android:text="@string/edu_goal3" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_checked_blue" />
+
+                <TextView
+                    style="@style/basicText"
+                    android:text="@string/edu_goal4" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/history_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <TextView
+                style="@style/largeText"
+                android:text="학과연혁" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/deu" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:stretchColumns="0,1,2,3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/history_layout">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="년도"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:layout_span="3"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="내용" />
+            </TableRow>
+
+            <!--    2015년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2015"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_span="3"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="컴퓨터정보기술인증(KCC2015) 프로그램 운영"
+                        />
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="컴퓨터응용공학부(멀티미디어공학과 포함)로 개편"/>
+
+                </LinearLayout>
+            </TableRow>
+
+            <!--    2014년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2014"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="지식경제부 서울어코드 공학교육활성화 지원사업 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+
+            <!--    2013년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2013"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="컴퓨터정보기술인증(KCC2010) 프로그램 운영"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2012년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2012"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="인턴쉽-캡스톤디자인 연계 산학프로젝트 프로그램 운영"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2011년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2011"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="지식경제부 대학IT역량강화(NEXT)사업 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2010년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2010"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="지식경제부 대학IT역량강화(NEXT)사업 선정" />
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="컴퓨터소프트웨어공학과 석박사 과정 신설"/>
+
+                </LinearLayout>
+            </TableRow>
+
+            <!--    2009년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2009"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="정보통신부 대학IT역량강화(NEXT)사업 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2008년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2008"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="정보통신부 대학IT역량강화(NEXT)사업 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2007년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2007"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="산업자원부 공학교육과정개편지원사업 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2006년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2006"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="컴퓨터소프트웨어공학과로 개편"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="산업자원부 공학교육과정개편지원사업 선정"/>
+
+                </LinearLayout>
+            </TableRow>
+
+            <!--    2005년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2005"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_span="3"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="2월 산업자원부 주관 공학교육과정 개편 지원사업 선정"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="2월 정보통신부 주관 IT 교수요원 지원사업 선정"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="3월 산업자원부 주관 공학교육과정 지원사업 선정"/>
+                </LinearLayout>
+            </TableRow>
+
+
+            <!--    2004년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2004"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="2월 정보통신부 주관 IT장비지원학과 선정"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="3월 일반대학원 석박사 과정(소프트웨어공학전공)신설"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="5월 부산 정보산업진흥원 주최IT 인력 UP-GRADE 교육사업진행"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="9월 정보통신연구원 선정 임베디드 SW 표준교과목 시법사업 진행"/>
+                </LinearLayout>
+            </TableRow>
+
+            <!--    2003년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2003"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="2월 정보통신부 주관 IT장비지원학과 선정"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="3월 일반대학원 석박사 과정(소프트웨어공학전공)신설"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="5월 부산 정보산업진흥원 주최IT 인력 UP-GRADE 교육사업진행"/>
+                    <TextView
+                        style="@style/basicText"
+                        android:gravity="center"
+                        android:text="9월 정보통신연구원 선정 임베디드 SW 표준교과목 시법사업 진행"/>
+                </LinearLayout>
+            </TableRow>
+
+            <!--    2002년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2001"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="정보통신부 주관 IT장비지원학과 선정"
+                    android:layout_span="3"/>
+            </TableRow>
+
+            <!--    2000년    -->
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    style="@style/basicText"
+                    android:text="2000"
+                    android:gravity="center"
+                    android:layout_column="0"/>
+
+                <TextView
+                    style="@style/basicText"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="소프트웨어산업 최첨단 전문인력 양성을 위해 부산지역 최초 신설"
+                    android:layout_span="3"/>
+            </TableRow>
+
+        </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -17,18 +18,21 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class SubActivity extends YouTubeBaseActivity {
     YouTubePlayerView youTubePlayerView;
-    Button btn;
+    Button btnPlay;
+    Button btnExit;
     YouTubePlayer.OnInitializedListener listener;
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_sub);
 
         setRoomName();
 
-        btn = (Button)findViewById(R.id.youtubeBtn);
+        btnPlay = (Button)findViewById(R.id.btn_youtube_play);
+        btnExit = (Button)findViewById(R.id.btn_youtube_exit);
         youTubePlayerView = (YouTubePlayerView)findViewById(R.id.youtubeView);
 
 
@@ -37,10 +41,8 @@ public class SubActivity extends YouTubeBaseActivity {
             String ID = setRoomName();
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                Log.e("WHYNOT", " NOPE!");
                 youTubePlayer.loadVideo(ID); //
                 //https://www.youtube.com/watch?v=NmkYHmiNArc 유투브에서 v="" 이부분이 키에 해당
-
             }
 
             @Override
@@ -48,16 +50,22 @@ public class SubActivity extends YouTubeBaseActivity {
 
             }
         };
-        if(btn!=null){
-            btn.setOnClickListener(new View.OnClickListener() {
+        if(btnPlay !=null){
+            btnPlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     youTubePlayerView.initialize("AIzaSyCsu1kctw1UAxUAISZJQ7rVyhGMtmCSdFg", listener);
-
                 }
             });
         }
-
+        if(btnExit != null){
+            btnExit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
     }
 
     @Override
