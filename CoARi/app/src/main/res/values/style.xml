@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="smallText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:fontFamily">@font/nanum_barun_gothic_light</item>
+    </style>
+
+    <style name="basicText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/nanum_barun_gothic</item>
+    </style>
+
+    <style name="largeText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:fontFamily">@font/nanum_barun_gothic_bold</item>
+    </style>
+
     <style name="loginLayout">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">50dp</item>
@@ -17,7 +39,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_marginRight">8dp</item>
-        <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -58,7 +79,6 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">15sp</item>
         <item name="fontFamily">@font/noto_sans_cjk_kr_bold</item>
     </style>
 
@@ -78,6 +98,35 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:gravity">center</item>
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button_bg</item>
     </style>
 
 </resources>

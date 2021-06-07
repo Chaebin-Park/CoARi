@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
     tools:context=".activity.SubActivity"
     android:orientation="vertical"
     >
@@ -12,7 +12,6 @@
         android:id="@+id/youtubeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,29 +31,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:weightSum="3"
+        android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview">
 
         <Button
-            android:id="@+id/youtubeBtn"
-            style="@style/youtubeButton"
+            android:id="@+id/btn_youtube_play"
+            style="@style/exitPopupButton"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/custom_main_button"
-            android:text="play" />
+            android:text="PLAY" />
 
         <Button
-            android:id="@+id/close"
-            style="@style/youtubeButton"
+            android:id="@+id/btn_youtube_exit"
+            style="@style/exitPopupButton"
             android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/custom_main_button"
-            android:text="exit" />
+            android:text="EXIT" />
     </LinearLayout>
 
 

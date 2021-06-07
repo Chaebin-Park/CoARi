@@ -10,14 +10,16 @@
     <ImageView
         android:id="@+id/imageView"
         style="@style/mainLogoImage"
-
         android:background="@color/white"
         android:src="@drawable/ic_deu_title"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <!--  버튼 1열  -->
     <LinearLayout
         android:id="@+id/linearLayout"
         style="@style/mainButtonLayout"
@@ -25,6 +27,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
+
         <!--  학과소개 버튼 레이아웃  -->
         <LinearLayout
             style="@style/mainButton"
@@ -38,6 +41,9 @@
 
             <TextView
                 style="@style/mainButtonText"
+                android:autoSizeMinTextSize="12dp"
+                android:autoSizeMaxTextSize="20dp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="학과소개" />
         </LinearLayout>
 
@@ -54,6 +60,9 @@
 
             <TextView
                 style="@style/mainButtonText"
+                android:autoSizeMinTextSize="12dp"
+                android:autoSizeMaxTextSize="20dp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="공지사항" />
         </LinearLayout>
 
@@ -70,13 +79,15 @@
 
             <TextView
                 style="@style/mainButtonText"
+                android:autoSizeMinTextSize="12dp"
+                android:autoSizeMaxTextSize="20dp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="학과소식" />
         </LinearLayout>
 
     </LinearLayout>
 
-        <!--  버튼 2열  -->
-
+    <!--  버튼 2열  -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         style="@style/mainButtonLayout"
@@ -84,6 +95,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
         <!--  교수진 버튼 레이아웃  -->
         <LinearLayout
             style="@style/mainButton"
@@ -96,6 +108,9 @@
                 android:src="@drawable/ic_prof" />
              <TextView
                  style="@style/mainButtonText"
+                 android:autoSizeMinTextSize="12dp"
+                 android:autoSizeMaxTextSize="20dp"
+                 android:autoSizeStepGranularity="2dp"
                  android:text="교수진" />
         </LinearLayout>
 
@@ -112,6 +127,9 @@
 
             <TextView
                 style="@style/mainButtonText"
+                android:autoSizeMinTextSize="12dp"
+                android:autoSizeMaxTextSize="20dp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="교육과정"/>
         </LinearLayout>
 
@@ -128,19 +146,37 @@
 
             <TextView
                 style="@style/mainButtonText"
+                android:autoSizeMinTextSize="12dp"
+                android:autoSizeMaxTextSize="20dp"
+                android:autoSizeStepGranularity="2dp"
                 android:text="진로 및 취업" />
         </LinearLayout>
 
     </LinearLayout>
 
     <!--  버튼 3열  -->
-
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/btn_tour"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:background="@drawable/custom_main_button"-->
+<!--        android:text="학교 둘러보기"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:clickable="true"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.495"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />-->
+    <android.widget.Button
         android:id="@+id/btn_tour"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/custom_main_button"
+        android:backgroundTint="@color/deu"
         android:text="학교 둘러보기"
         android:textColor="@color/white"
         android:textSize="20dp"
@@ -151,10 +187,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-<!--      버튼 4열  -->
+    <!--  버튼 4열  -->
 
-<!--      홈페이지, 캠퍼스맵 버튼 레이아웃  -->
-
+    <!--  홈페이지, 캠퍼스맵 버튼 레이아웃  -->
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="110dp"
@@ -193,7 +228,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="캠퍼스 맵"
+            android:text="내비게이션"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />

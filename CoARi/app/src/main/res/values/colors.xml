@@ -14,4 +14,5 @@
     <color name="google">#FFFFFF</color>
     <color name="google_blue">#4285F4</color>
     <color name="popup_blue">#0078D4</color>
+    <color name="background">#F8F9FB</color>
 </resources>

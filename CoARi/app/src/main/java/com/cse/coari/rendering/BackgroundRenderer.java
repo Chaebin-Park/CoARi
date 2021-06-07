@@ -1,5 +1,6 @@
 /*
- * Copyright 2017 Google Inc. All Rights Reserved.
+ * Copyright 2017 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,6 +24,7 @@ import androidx.annotation.NonNull;
 
 import com.google.ar.core.Coordinates2d;
 import com.google.ar.core.Frame;
+import com.google.ar.core.Session;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -31,8 +33,6 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-
-//import android.support.annotation.NonNull;
 
 /**
  * This class renders the AR background from camera feed. It creates and hosts the texture given to
@@ -170,7 +170,7 @@ public class BackgroundRenderer {
    * accurately follow static physical objects. This must be called <b>before</b> drawing virtual
    * content.
    *
-   * @param frame The current {@code Frame} as returned by .
+   * @param frame The current {@code Frame} as returned by {@link Session#update()}.
    * @param debugShowDepthMap Toggles whether to show the live camera feed or latest depth image.
    */
   public void draw(@NonNull Frame frame, boolean debugShowDepthMap) {

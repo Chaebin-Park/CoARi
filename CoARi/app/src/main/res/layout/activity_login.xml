@@ -2,29 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".activity.LoginActivity">
 
+    <ImageButton
+        android:id="@+id/btnAdminLogin"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/ic_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="68dp"
         android:src="@drawable/ic_deu_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvAppname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/deu"
-        android:textSize="50sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="20dp"
+        android:autoSizeMaxTextSize="100dp"
+        android:autoSizeStepGranularity="2dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
@@ -36,17 +50,18 @@
     <LinearLayout
         android:id="@+id/layoutKakaoLogin"
         style="@style/loginLayout"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_kakao_button"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/layoutGoogleLogin"
-        app:layout_constraintEnd_toEndOf="@+id/layoutGoogleLogin"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/layoutGoogleLogin"
-        app:layout_constraintTop_toBottomOf="@+id/tvAppname"
-        app:layout_constraintVertical_bias="0.1">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppname">
 
         <ImageView
             style="@style/loginImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/kakao_symbol" />
 
         <View
@@ -56,6 +71,10 @@
 
         <TextView
             style="@style/loginText"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12dp"
+            android:autoSizeMaxTextSize="20dp"
+            android:autoSizeStepGranularity="2dp"
             android:fontFamily="@font/noto_sans_cjk_kr_black"
             android:text="@string/kakao_login" />
 
@@ -64,17 +83,18 @@
     <LinearLayout
         android:id="@+id/layoutGoogleLogin"
         style="@style/loginLayout"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_google_button"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/layoutGuestLogin"
-        app:layout_constraintEnd_toEndOf="@+id/layoutGuestLogin"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/layoutGuestLogin"
-        app:layout_constraintTop_toBottomOf="@+id/layoutKakaoLogin"
-        app:layout_constraintVertical_bias="0.1">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutKakaoLogin">
 
         <ImageView
             style="@style/loginImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:background="@color/white"
             android:src="@drawable/google_symbol" />
 
@@ -85,6 +105,10 @@
 
         <TextView
             style="@style/loginText"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12dp"
+            android:autoSizeMaxTextSize="18dp"
+            android:autoSizeStepGranularity="2dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/google_login" />
     </LinearLayout>
@@ -92,17 +116,18 @@
     <LinearLayout
         android:id="@+id/layoutGuestLogin"
         style="@style/loginLayout"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_guest_button"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutGoogleLogin"
-        app:layout_constraintVertical_bias="0.1">
+        app:layout_constraintTop_toBottomOf="@+id/layoutGoogleLogin">
 
         <ImageView
             style="@style/loginImage"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_user" />
 
         <View
@@ -112,6 +137,10 @@
 
         <TextView
             style="@style/loginText"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12dp"
+            android:autoSizeMaxTextSize="18dp"
+            android:autoSizeStepGranularity="2dp"
             android:fontFamily="@font/roboto_bold"
             android:text="@string/guest_login"
             android:textColor="@color/white" />

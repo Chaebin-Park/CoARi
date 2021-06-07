@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">CoARi</string>
+
+    <string name="kakao_native_app_key">b0205ff096d5ddd41a61b039ac629887</string>
+    <string name="kakao_rest_api_key">12afc0354f147767eea75f492d3a475f</string>
+    <string name="kakao_admin_key">9380d9fcecd2cea3dc54221a1dc4d414</string>
+
+    <string name="google_client_id">1081169223994-kr1kdjrdhe0telvnoas6mr8j22u3mcer.apps.googleusercontent.com</string>
+
     <string name="login">로그인</string>
     <string name="loading">Now Loading…</string>
     <string name="next">Next</string>
@@ -14,4 +21,57 @@
     <string name="drawer_close">drawer_close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detail_prof_info">DetailProfInfoActivity</string>
+    <!-- Strings in the main activity -->
+    <string name="cancel">Cancel</string>
+    <string name="host_button_text">Host</string>
+    <string name="host_dialog_title">Host an Anchor</string>
+    <string name="host_ok">Host</string>
+    <string name="initial_room_code">0000</string>
+    <string name="resolve_button_text">Resolve</string>
+
+    <!-- Strings in the Resolve Dialog Box -->
+    <string name="resolve_dialog_ok">Resolve</string>
+    <string name="resolve_dialog_title">Resolve an Anchor</string>
+    <string name="resolve_dialog_text_hint">Enter Room Code</string>
+
+    <!-- Strings used in Snackbar messages -->
+    <string name="snackbar_anchor_placed">Now hosting anchor...</string>
+    <string name="snackbar_arcore_unavailable">Please install ARCore.</string>
+    <string name="snackbar_arcore_too_old">Please update ARCore.</string>
+    <string name="snackbar_arcore_sdk_too_old">Please update the app with a newer version of the ARCore SDK.</string>
+    <string name="snackbar_arcore_exception">This device does not support ARCore.</string>
+    <string name="snackbar_camera_unavailable">Camera unavailable. Try restarting the app.</string>
+    <string name="snackbar_cloud_id_shared">The anchor ID was shared via Firebase.</string>
+    <string name="snackbar_dismiss">Dismiss</string>
+    <string name="snackbar_firebase_error">There was a Firebase Error. Please check Logcat for more details.</string>
+    <string name="snackbar_host_error">Hosting Error: %1$s</string>
+    <string name="snackbar_initial_message">Please select Host or Resolve to continue.</string>
+    <string name="snackbar_on_host">Now in Hosting Mode. Press Cancel to Exit.</string>
+    <string name="snackbar_on_resolve">Now in Resolving Mode. Press Cancel to Exit.</string>
+    <string name="snackbar_resolve_error">Resolving Error: %1$s</string>
+    <string name="snackbar_resolve_success">The anchor was successfully resolvaed.</string>
+    <string name="snackbar_room_code_available">The room code is now available. Please place an anchor to host.</string>
+    <!-- Resolve anchor has no result yet. [CHAR_LIMIT=NONE] -->
+    <string name="snackbar_resolve_no_result_yet">Still resolving the anchor. Please make sure you\'re looking at where the Cloud Anchor was hosted. Or, try to re-join the room.</string>
+
+    <!-- Strings used in privacy notice dialog messages. [CHAR_LIMIT=NONE] -->
+    <string name="share_experience_title">Experience it together</string>
+    <!-- Privacy notice message. [CHAR_LIMIT=NONE] -->
+    <string name="share_experience_message">To power this session, Google will process visual data from your camera.</string>
+    <!-- Privacy notice accept. [CHAR_LIMIT=NONE] -->
+    <string name="agree_to_share">Start now</string>
+    <!-- Privacy notice learn more. [CHAR_LIMIT=NONE] -->
+    <string name="learn_more">Learn more</string>
+    <!-- Cloud anchor privacy website. [CHAR_LIMIT=NONE] -->
+    <string name="cloud_anchor_website">https://developers.google.com/ar/cloud-anchors-privacy</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="edu_goal1">기초과학, 컴퓨터 소프트웨어 공학 기술, 소프트웨어 도구 활용 능력을 바탕으로 한 공학 기초 능력과 실무 능력 배양</string>
+    <string name="edu_goal2">습득한 지식을 응용하고 창의적인 사고를 발휘하여 다양한 공학 문제를 해결하고 종합적으로 설계할 수 있는 능력 배양</string>
+    <string name="edu_goal3">관련 산업체와 연구기관 등에서 필요한 실무 수행 능력과 효과적인 의사전달 능력을 갖춘 실무 전문 인력 양성</string>
+    <string name="edu_goal4">건전한 윤리적 사고와 책임의식을 바탕으로 국제화 시대를 이끌어 나갈 창의적인 전문 인력 양성</string>
 </resources>

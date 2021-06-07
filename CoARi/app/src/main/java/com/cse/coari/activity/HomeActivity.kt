@@ -5,10 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,89 +13,84 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.cse.coari.R
+import com.cse.coari.data.LoginType
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.custom_toolbar.*
+import kotlinx.android.synthetic.main.menu_header.*
+import kotlinx.android.synthetic.main.menu_header.view.*
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var exitResult: String
 
-    private lateinit var btnTour : Button
-    private lateinit var layoutInfo : LinearLayout
-    private lateinit var layoutNotice : LinearLayout
-    private lateinit var layoutNews : LinearLayout
-    private lateinit var layoutProf : LinearLayout
-    private lateinit var layoutCurr : LinearLayout
-    private lateinit var layoutEmp : LinearLayout
-    private lateinit var ivMenu : ImageView
-    private lateinit var drawerLayout : DrawerLayout
+    // Layout members
     private lateinit var drawerToggle : ActionBarDrawerToggle
-    private lateinit var navigationView : NavigationView
-    private lateinit var toolbar : Toolbar
+    private lateinit var loginType : LoginType
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        toolbar = findViewById(R.id.custom_toolbar)
-        setSupportActionBar(toolbar)
+        if(intent.hasExtra("CASE")){
+            loginType = intent.getSerializableExtra("CASE") as LoginType
+            Toast.makeText(this, loginType.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        setSupportActionBar(custom_toolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.mipmap.ic_launcher_round)
 
-        btnTour = findViewById(R.id.btn_tour)
-        layoutInfo = findViewById(R.id.layout_info)
-        layoutNotice = findViewById(R.id.layout_notice)
-        layoutNews = findViewById(R.id.layout_news)
-        layoutProf = findViewById(R.id.layout_prof)
-        layoutCurr = findViewById(R.id.layout_curr)
-        layoutEmp = findViewById(R.id.layout_emp)
-
-        drawerLayout = findViewById(R.id.dl_drawer_root)
-        navigationView = findViewById(R.id.nv_main_navigation_root)
         drawerToggle = ActionBarDrawerToggle(
             this,
-            drawerLayout,
-            toolbar,
+            dl_drawer_root,
+            custom_toolbar,
             R.string.drawer_open,
             R.string.drawer_close
         )
-        drawerLayout.addDrawerListener(drawerToggle)
-        navigationView.setNavigationItemSelectedListener(this)
 
+        dl_drawer_root.addDrawerListener(drawerToggle)
+        nv_main_navigation_root.setNavigationItemSelectedListener(this)
 
-        btnTour.setOnClickListener{
+        btn_tour.setOnClickListener{
             onClickTour(it)
         }
 
-        layoutInfo.setOnClickListener{
+        layout_info.setOnClickListener{
             onClickInfo(it)
         }
 
-        layoutNotice.setOnClickListener{
+        layout_notice.setOnClickListener{
             onClickNotice(it)
         }
 
-        layoutNews.setOnClickListener{
+        layout_news.setOnClickListener{
             onClickNews(it)
         }
 
-        layoutProf.setOnClickListener{
+        layout_prof.setOnClickListener{
             onClickProfInfo(it)
         }
 
-        layoutCurr.setOnClickListener{
+        layout_curr.setOnClickListener{
             onClickCurr(it)
         }
 
-        layoutEmp.setOnClickListener{
+        layout_emp.setOnClickListener{
             onClickEmp(it)
         }
     }
 
+    /*
+    * Click Listeners
+    * Change Activity intent
+    */
     private fun onClickTour(v: View){
-        val intent = Intent(this, ArActivity::class.java)
+        val intent = Intent(this, TourActivity::class.java)
         startActivity(intent)
     }
 
@@ -133,14 +125,22 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
+    /*
+     * override Backpress action
+     * if Drawer opened, close drawer
+     * if Drawer closes, exit popup start
+     */
     override fun onBackPressed() {
-        if(drawerLayout.isDrawerOpen((GravityCompat.START))){
-            drawerLayout.closeDrawer(GravityCompat.START)
+        if(dl_drawer_root.isDrawerOpen((GravityCompat.START))){
+            dl_drawer_root.closeDrawer(GravityCompat.START)
         } else {
             mPopupClick()
         }
     }
 
+    /*
+     * exit popup start
+     */
     private fun mPopupClick(){
         val intent = Intent(this, ExitPopupActivity::class.java)
         startActivityForResult(intent, 1)
@@ -160,6 +160,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    /*
+     * drawer item click events
+     * if alarm menu clicked, start AlarmActivity
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_alarm -> {
@@ -174,10 +178,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "item2 clicked..", Toast.LENGTH_SHORT).show()
             }
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
+        dl_drawer_root.closeDrawer(GravityCompat.START)
         return false
     }
 
+    /*
+     * sync drawer state
+     */
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         // Sync the toggle state after onRestoreInstanceState has occurred.
