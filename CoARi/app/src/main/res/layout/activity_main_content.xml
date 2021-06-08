@@ -155,21 +155,7 @@
     </LinearLayout>
 
     <!--  버튼 3열  -->
-<!--    <Button-->
-<!--        android:id="@+id/btn_tour"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:background="@drawable/custom_main_button"-->
-<!--        android:text="학교 둘러보기"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="20dp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:clickable="true"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.495"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />-->
+
     <android.widget.Button
         android:id="@+id/btn_tour"
         android:layout_width="300dp"
@@ -191,11 +177,12 @@
 
     <!--  홈페이지, 캠퍼스맵 버튼 레이아웃  -->
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="300dp"
         android:layout_height="110dp"
+        android:background="@drawable/custom_border"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/custom_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

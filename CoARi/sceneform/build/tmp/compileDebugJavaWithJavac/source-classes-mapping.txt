@@ -1,0 +1,2 @@
+com/google/ar/sceneform/sceneform/BuildConfig.java
+ com.google.ar.sceneform.sceneform.BuildConfig

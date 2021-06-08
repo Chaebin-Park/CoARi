@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/background">
 
-    <TextView
-        style="@style/basicText"
-        android:text="TEST"
-        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
+            android:background="@drawable/background_task_item">
 
+            <ImageView
+                android:id="@+id/iv_delete_alarm"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="10dp"
+                android:textColor="#ffffff" />
 
-</LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/swipe_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="13dp"
+            android:weightSum="5"
+            android:background="@drawable/background_item"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_alarm_title"
+                    style="@style/basicText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text=""
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/tv_alarm_author"
+                    style="@style/smallText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:text=""
+                    android:textColor="#000000" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_alarm_date"
+                style="@style/smallText"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

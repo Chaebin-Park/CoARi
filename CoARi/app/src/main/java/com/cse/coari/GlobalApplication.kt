@@ -14,10 +14,6 @@ class GlobalApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        KakaoSdk.init(this,"b0205ff096d5ddd41a61b039ac629887")
-//
-//        var hash_key = getKeyHash(this)
-//        Log.i("HASHKEY", hash_key)
 
         instance = this
         KakaoSDK.init(KakaoSDKAdapter())

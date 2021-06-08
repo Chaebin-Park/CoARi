@@ -2,11 +2,14 @@ package com.cse.coari.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.cse.coari.R
 import com.cse.coari.adapter.HofRecyclerAdapter
+import com.cse.coari.data.GetHofDTO
 import com.cse.coari.data.HofData
+import com.cse.coari.retrofit.RetrofitBuilder
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
@@ -15,6 +18,10 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import kotlinx.android.synthetic.main.activity_emp.*
+import kotlinx.android.synthetic.main.item_hof.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EmpActivity : AppCompatActivity() {
 
@@ -29,17 +36,39 @@ class EmpActivity : AppCompatActivity() {
         HofData("deu_logo", "2019년 졸업생 김O휘", "SEUN", "전산직", "ctx")
     )
 
+    private lateinit var hofItems : GetHofDTO
+    private lateinit var adapter : HofRecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emp)
         setBarChart()
 
-        val adapter = HofRecyclerAdapter(this, hofList)
-        hof_recyclerview.adapter = adapter
+        RetrofitBuilder.api.getHof().enqueue(object : Callback<GetHofDTO>{
+            override fun onResponse(call: Call<GetHofDTO>, response: Response<GetHofDTO>) {
+                if (response.isSuccessful){
+                    hofItems = response.body()!!
+                    adapter = HofRecyclerAdapter(this@EmpActivity, hofItems)
+                    hof_recyclerview.adapter = adapter
 
-        val layout = GridLayoutManager(this, 3)
-        hof_recyclerview.layoutManager = layout
-        hof_recyclerview.setHasFixedSize(true)
+                    val layout = GridLayoutManager(this@EmpActivity, 3)
+                    hof_recyclerview.layoutManager = layout
+                    hof_recyclerview.setHasFixedSize(true)
+                    Log.i(TAG, "Get hof data success : {$hofItems}")
+                }
+            }
+
+            override fun onFailure(call: Call<GetHofDTO>, t: Throwable) {
+                Log.i(TAG, "Get hof data fail")
+            }
+        })
+
+//        val adapter = HofRecyclerAdapter(this, hofItems)
+//        hof_recyclerview.adapter = adapter
+//
+//        val layout = GridLayoutManager(this, 3)
+//        hof_recyclerview.layoutManager = layout
+//        hof_recyclerview.setHasFixedSize(true)
     }
 
     private fun setBarChart(){
@@ -104,5 +133,9 @@ class EmpActivity : AppCompatActivity() {
         override fun getAxisLabel(value: Float, axis: AxisBase?): String {
             return days.getOrNull(value.toInt()-1) ?: value.toString()
         }
+    }
+
+    companion object{
+        const val TAG = "EmpActivity"
     }
 }

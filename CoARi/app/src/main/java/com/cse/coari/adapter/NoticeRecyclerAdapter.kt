@@ -9,9 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cse.coari.R
 import com.cse.coari.activity.DetailNoticeActivity
+import com.cse.coari.data.NoticeDTOItem
 import com.cse.coari.data.NoticeData
 
-class NoticeRecyclerAdapter(private val context: Context, private val items: ArrayList<NoticeData>) :
+class NoticeRecyclerAdapter(private val context: Context, private val items: ArrayList<NoticeDTOItem>) :
     RecyclerView.Adapter<NoticeRecyclerAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -19,14 +20,14 @@ class NoticeRecyclerAdapter(private val context: Context, private val items: Arr
         private val noticeContext = itemView.findViewById<TextView>(R.id.notice_context)
         private val noticeDate = itemView.findViewById<TextView>(R.id.notice_date)
 
-        fun bind(noticeData: NoticeData, context: Context){
-            noticeTitle.text = noticeData.strTitle
-            noticeContext.text = noticeData.strContext
-            noticeDate.text = noticeData.strDate
+        fun bind(noticeData: NoticeDTOItem, context: Context){
+            noticeTitle.text = noticeData.title
+            noticeContext.text = noticeData.author
+            noticeDate.text = noticeData.date
 
             itemView.setOnClickListener{
                 Intent(context, DetailNoticeActivity::class.java).apply {
-                    putExtra("notice_data", noticeData)
+                    putExtra("URL", noticeData.url)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
             }

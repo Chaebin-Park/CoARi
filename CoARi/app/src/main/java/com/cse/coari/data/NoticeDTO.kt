@@ -1,5 +1,3 @@
 package com.cse.coari.data
 
-class NoticeDTO (
-
-)
+class NoticeDTO : ArrayList<NoticeDTOItem>()

@@ -29,7 +29,11 @@
 
                 <TextView
                     android:id="@+id/notice_title"
-                    style="@style/largeText"
+                    style="@style/basicText"
+                    android:textStyle="bold"
+                    android:ems="10"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:gravity="left"
@@ -37,7 +41,7 @@
 
                 <TextView
                     android:id="@+id/notice_context"
-                    style="@style/basicText"
+                    style="@style/smallText"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"

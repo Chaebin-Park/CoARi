@@ -16,13 +16,12 @@ import android.widget.ProgressBar
 import com.cse.coari.R
 import kotlinx.android.synthetic.main.activity_curriculum.*
 
+@Suppress("DEPRECATION")
 class CurriculumActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_curriculum)
-
-//        curr_webview.loadUrl("https://cse.deu.ac.kr/2_6_abeek.php")
 
         curr_webview.apply {
             webViewClient = WebViewClientClass()
@@ -69,19 +68,14 @@ class CurriculumActivity : AppCompatActivity() {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 settings.safeBrowsingEnabled = true // api 26
             }
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-                settings.mediaPlaybackRequiresUserGesture = false
-            }
-
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-                settings.allowUniversalAccessFromFileURLs = true
-            }
+            settings.mediaPlaybackRequiresUserGesture = false
+            settings.allowUniversalAccessFromFileURLs = true
             settings.allowFileAccess = true
             fitsSystemWindows = true
         }
 
-        val url = "https://cse.deu.ac.kr/2_6_abeek.php"
-        curr_webview.loadUrl(url)
+
+        curr_webview.loadUrl(URL)
     }
 
     // 웹 뷰에서 홈페이지를 띄웠을 때, 기존창에서 실행되도록 하기 위함.
@@ -104,7 +98,7 @@ class CurriculumActivity : AppCompatActivity() {
         }
 
         override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-            var builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this@CurriculumActivity)
+            val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this@CurriculumActivity)
             var message = "SSL Certificate error"
             when(error?.primaryError) {
                 SslError.SSL_UNTRUSTED  -> message = "The certificate authority is not trusted."
@@ -115,16 +109,21 @@ class CurriculumActivity : AppCompatActivity() {
             message += " Do you want to continue anyway?"
             builder.setTitle("SSL Certificate Error")
             builder.setMessage(message)
-            builder.setPositiveButton("continue",
-                    DialogInterface.OnClickListener{_, _ ->
-                        handler?.proceed()
-                    })
-            builder.setNegativeButton("cancel",
-                    DialogInterface.OnClickListener{ dialog, which ->
-                        handler?.cancel()
-                    })
+            builder.setPositiveButton("continue"
+            ) { _, _ ->
+                handler?.proceed()
+            }
+            builder.setNegativeButton("cancel"
+            ) { _, _ ->
+                handler?.cancel()
+            }
             val dialog: android.app.AlertDialog? = builder.create()
             dialog?.show()
         }
+    }
+
+    companion object{
+        const val URL = "https://cse.deu.ac.kr/2_6_abeek.php"
+        const val TAG = "CurriculumActivity"
     }
 }

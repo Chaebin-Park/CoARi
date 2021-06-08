@@ -8,36 +8,32 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.cse.coari.R
 import com.cse.coari.activity.DetailEmpActivity
-import com.cse.coari.activity.DetailProfInfoActivity
+import com.cse.coari.data.GetHofDTO
+import com.cse.coari.data.GetHofDTOItem
 import com.cse.coari.data.HofData
 
-class HofRecyclerAdapter(private val context: Context, private val items: ArrayList<HofData>) :
+class HofRecyclerAdapter(private val context: Context, private val items: GetHofDTO) :
     RecyclerView.Adapter<HofRecyclerAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val hofImage = itemView.findViewById<ImageView>(R.id.hof_image)
         private val hofName = itemView.findViewById<TextView>(R.id.hof_name)
 
-        fun bind(hofData: HofData, context: Context){
-            if(hofData.imgProfile != ""){
-                val resourceId =
-                    context.resources.getIdentifier(hofData.imgProfile, "drawable", context.packageName)
-                if(resourceId > 0){
-                    hofImage.setImageResource(resourceId)
-                } else {
-                    hofImage.setImageResource(R.drawable.ic_deu_logo)
-                }
+        fun bind(hofData: GetHofDTOItem, context: Context){
+            if(hofData.image != ""){
+                Glide.with(context).load(hofData.image).into(hofImage)
             } else {
                 hofImage.setImageResource(R.drawable.ic_deu_logo)
             }
 
-            hofName.text = hofData.strName
+            hofName.text = hofData.name
 
             itemView.setOnClickListener{
                 Intent(context, DetailEmpActivity::class.java).apply {
-                    putExtra("data", hofData)
+                    putExtra("ID", hofData.graduate_id)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
             }
@@ -54,4 +50,5 @@ class HofRecyclerAdapter(private val context: Context, private val items: ArrayL
     }
 
     override fun getItemCount(): Int = items.size
+
 }

@@ -2,19 +2,15 @@ package com.cse.coari.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.cse.coari.R
-import com.cse.coari.activity.DetailProfInfoActivity
 import com.cse.coari.data.ProfData
 import kotlinx.android.synthetic.main.custom_listview.view.*
-import org.w3c.dom.Text
 
 class ProfRecyclerAdapter(private val context: Context, private val items: ArrayList<ProfData>) :
     RecyclerView.Adapter<ProfRecyclerAdapter.ItemViewHolder>(){
@@ -43,13 +39,6 @@ class ProfRecyclerAdapter(private val context: Context, private val items: Array
             profEmail.text = profData.strEmail
             profPhoneNumber.text = profData.strPhoneNumber
             profLab.text = profData.strLab
-
-            itemView.setOnClickListener{
-                Intent(context, DetailProfInfoActivity::class.java).apply {
-                    putExtra("data", profData)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run { context.startActivity(this) }
-            }
         }
     }
 

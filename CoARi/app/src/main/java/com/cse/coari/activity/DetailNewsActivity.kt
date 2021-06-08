@@ -2,21 +2,18 @@ package com.cse.coari.activity
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.DialogInterface
-import android.graphics.Bitmap
-import android.net.http.SslError
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
-import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
-import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
 import com.cse.coari.R
 import com.cse.coari.data.NewsData
+import com.cse.coari.helper.WebViewClientClass
 import kotlinx.android.synthetic.main.activity_detail_news.*
 
+@Suppress("DEPRECATION")
 class DetailNewsActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +21,7 @@ class DetailNewsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_news)
 
         news_webview.apply {
-            webViewClient = WebViewClientClass()
+            webViewClient = WebViewClientClass(context, news_webview, news_progressbar )
 
             webChromeClient = object : WebChromeClient() {
                 override fun onCreateWindow(view: WebView?, isDialog: Boolean, isUserGesture: Boolean, resultMsg: Message?): Boolean {
@@ -66,64 +63,16 @@ class DetailNewsActivity : AppCompatActivity() {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 settings.safeBrowsingEnabled = true // api 26
             }
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
-                settings.mediaPlaybackRequiresUserGesture = false
-            }
+            settings.mediaPlaybackRequiresUserGesture = false
             settings.allowContentAccess = true
             settings.setGeolocationEnabled(true)
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
-                settings.allowUniversalAccessFromFileURLs = true
-            }
+            settings.allowUniversalAccessFromFileURLs = true
             settings.allowFileAccess = true
             fitsSystemWindows = true
         }
 
-        val data = intent.getSerializableExtra("data") as NewsData
-        val url = data.url
+        val url = intent.getSerializableExtra("data") as String
         news_webview.loadUrl(url)
     }
 
-    // 웹 뷰에서 홈페이지를 띄웠을 때, 기존창에서 실행되도록 하기 위함.
-    inner class WebViewClientClass: WebViewClient(){
-        override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-            if(url != null)     view?.loadUrl(url)
-            return true
-        }
-
-        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-            super.onPageStarted(view, url, favicon)
-            news_progressbar.visibility = ProgressBar.VISIBLE
-            news_webview.visibility = View.GONE
-        }
-
-        override fun onPageCommitVisible(view: WebView?, url: String?) {
-            super.onPageCommitVisible(view, url)
-            news_progressbar.visibility = ProgressBar.GONE
-            news_webview.visibility = View.VISIBLE
-        }
-
-        override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler?, error: SslError?) {
-            var builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this@DetailNewsActivity)
-            var message = "SSL Certificate error"
-            when(error?.primaryError) {
-                SslError.SSL_UNTRUSTED  -> message = "The certificate authority is not trusted."
-                SslError.SSL_EXPIRED    -> message = "The certificate has expired."
-                SslError.SSL_IDMISMATCH -> message = "The certificate Hostname mismatch."
-                SslError.SSL_NOTYETVALID-> message = "The certificate is not yet valid"
-            }
-            message += " Do you want to continue anyway?"
-            builder.setTitle("SSL Certificate Error")
-            builder.setMessage(message)
-            builder.setPositiveButton("continue",
-                DialogInterface.OnClickListener{ _, _ ->
-                    handler?.proceed()
-                })
-            builder.setNegativeButton("cancel",
-                DialogInterface.OnClickListener{ dialog, which ->
-                    handler?.cancel()
-                })
-            val dialog: android.app.AlertDialog? = builder.create()
-            dialog?.show()
-        }
-    }
 }
