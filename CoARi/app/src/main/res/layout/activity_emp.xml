@@ -55,7 +55,7 @@
         </LinearLayout>
     </FrameLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
@@ -89,15 +89,23 @@
                     android:background="@color/deu" />
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/emp_chart"
+            <LinearLayout
+                android:id="@+id/chart_layout"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emp_layout" />
+                app:layout_constraintTop_toBottomOf="@+id/emp_layout">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/emp_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/hof_layout"
@@ -107,7 +115,7 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emp_chart">
+                app:layout_constraintTop_toBottomOf="@+id/chart_layout">
 
                 <TextView
                     style="@style/largeText"
@@ -126,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:descendantFocusability="blocksDescendants"
-                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -135,5 +143,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

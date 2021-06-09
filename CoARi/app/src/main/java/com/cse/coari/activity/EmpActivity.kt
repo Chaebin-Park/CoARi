@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.cse.coari.R
 import com.cse.coari.adapter.HofRecyclerAdapter
 import com.cse.coari.data.GetHofDTO
@@ -48,6 +49,7 @@ class EmpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<GetHofDTO>, response: Response<GetHofDTO>) {
                 if (response.isSuccessful){
                     hofItems = response.body()!!
+                    Log.e("EMPACTIVITY", "item : ${hofItems.toString()}")
                     adapter = HofRecyclerAdapter(this@EmpActivity, hofItems)
                     hof_recyclerview.adapter = adapter
 
@@ -63,12 +65,7 @@ class EmpActivity : AppCompatActivity() {
             }
         })
 
-//        val adapter = HofRecyclerAdapter(this, hofItems)
-//        hof_recyclerview.adapter = adapter
-//
-//        val layout = GridLayoutManager(this, 3)
-//        hof_recyclerview.layoutManager = layout
-//        hof_recyclerview.setHasFixedSize(true)
+
     }
 
     private fun setBarChart(){
@@ -97,7 +94,7 @@ class EmpActivity : AppCompatActivity() {
                 axisLineColor = ContextCompat.getColor(context,R.color.deu) // 축 색깔 설정
                 gridColor = ContextCompat.getColor(context,R.color.deu)     // 축 아닌 격자 색깔 설정
                 textColor = ContextCompat.getColor(context,R.color.black)   // 라벨 텍스트 컬러 설정
-                textSize = 14f //라벨 텍스트 크기
+                textSize = 12f //라벨 텍스트 크기
             }
             xAxis.run {
                 position = XAxis.XAxisPosition.BOTTOM//X축을 아래에다가 둔다.
@@ -106,7 +103,7 @@ class EmpActivity : AppCompatActivity() {
                 setDrawGridLines(false) // 격자
                 textColor = ContextCompat.getColor(context,R.color.black) //라벨 색상
                 valueFormatter = MyXAxisFormatter() // 축 라벨 값 바꿔주기 위함
-                textSize = 14f // 텍스트 크기
+                textSize = 12f // 텍스트 크기
             }
             axisRight.isEnabled = false // 오른쪽 Y축을 안보이게 해줌.
             setTouchEnabled(false) // 그래프 터치해도 아무 변화없게 막음

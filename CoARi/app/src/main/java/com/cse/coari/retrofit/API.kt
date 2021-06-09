@@ -24,4 +24,8 @@ interface API {
     @Headers("Content-Type: */*")
     @GET("/api/graduates/search")
     fun getHof() : Call<GetHofDTO>
+
+    @Headers("Content-Type: */*")
+    @GET("/api/graduates/{graduate_id}")
+    fun postHof(@Path("graduate_id")id: String) : Call<PostHofDTO>
 }

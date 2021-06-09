@@ -2,6 +2,7 @@ package com.cse.coari.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,19 +24,21 @@ class HofRecyclerAdapter(private val context: Context, private val items: GetHof
         private val hofName = itemView.findViewById<TextView>(R.id.hof_name)
 
         fun bind(hofData: GetHofDTOItem, context: Context){
-            if(hofData.image != ""){
-                Glide.with(context).load(hofData.image).into(hofImage)
+            if(hofData.fileURL != ""){
+                Log.e("HOF", "${hofData.fileURL} : image")
+                Glide.with(context).load(hofData.fileURL).into(hofImage)
             } else {
+                Log.e("HOF", "${hofData.fileURL} : image")
                 hofImage.setImageResource(R.drawable.ic_deu_logo)
             }
 
             hofName.text = hofData.name
 
             itemView.setOnClickListener{
-                Intent(context, DetailEmpActivity::class.java).apply {
-                    putExtra("ID", hofData.graduate_id)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run { context.startActivity(this) }
+
+                val intent = Intent(context, DetailEmpActivity::class.java)
+                intent.putExtra("ID", hofData.graduate_id.toString())
+                context.startActivity(intent)
             }
         }
     }

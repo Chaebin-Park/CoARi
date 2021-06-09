@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cse.coari">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,13 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".alarm.AlarmMainActivity"></activity>
+
+        <activity android:name=".alarm.AlarmMainActivity" />
         <activity android:name=".activity.DetailNewsActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <activity android:name=".activity.DetailEmpActivity" />
+        <activity android:name=".activity.DetailEmpActivity"
+            android:theme="@android:style/Theme.Dialog"/>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
