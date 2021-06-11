@@ -37,8 +37,6 @@ e
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 n
 >app/src/main/java/com/cse/coari/activity/DetailNewsActivity.kt,e\4\e4308cc1e56582cfaa377065ec1eef89a78751b6
-k
-;app/src/main/java/com/cse/coari/retrofit/RetrofitBuilder.kt,c\d\cd7c7f057f924efcb41b93aff1fdf9cb71b0c470
 g
 7app/src/main/java/com/cse/coari/alarm/AlarmViewModel.kt,4\5\4543148b266b8e50da1ca34d52be14f9406a544f
 b
@@ -51,3 +49,5 @@ a
 1app/src/main/java/com/cse/coari/data/GetHofDTO.kt,7\5\757c9a12389ac2aed8ecad2dee69cbb6cc5add0e
 a
 1app/src/main/java/com/cse/coari/alarm/AlarmAPI.kt,a\6\a642e7d807d343c9770193a75b30ed0030f4d117
+m
+=app/src/main/java/com/cse/coari/activity/ExitPopupActivity.kt,2\5\25904b3dcbae0ef140668d7f3974a29a0516db07

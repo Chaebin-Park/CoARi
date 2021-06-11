@@ -27,15 +27,6 @@ import retrofit2.Response
 class EmpActivity : AppCompatActivity() {
 
     private val entries = ArrayList<BarEntry>()
-    private val hofList = arrayListOf<HofData>(
-        HofData("deu_logo", "2020년 졸업생 최o용", "네이버", "포털 및 기타 인터넷 정보매개 서비스업", "ctx"),
-        HofData("deu_logo", "2020년 졸업생 정O훈", "안랩", "안티 바이러스를 포함해 컴퓨터 전반의 보안 솔루션을 제작 및 관리하는 정보보안업체", "ctx"),
-        HofData("deu_logo", "2019년 졸업생 이O혁", "BNK부산은행", "부산은행은 BNK금융그룹의 자회사로 대한민국의 지방은행 중 가장 규모가 큼", "ctx"),
-        HofData("deu_logo", "2019년 졸업생 서O영", "롯데정보통신", "정보시스템과 관련된 설비, 인력, 하드웨어 등을 위탁 관리, 운영하는 SM사업부문과 정보시스템 구축 계획 및 운영 전략을 기획하고 시스템 설계 및 개발을 지원하는 SI사업부문이 있는 롯데그룹 계열 SI업체", "ctx"),
-        HofData("deu_logo", "2019년 졸업생 진O현", "KIM&CHANG", "디지털 포렌식 연구원", "ctx"),
-        HofData("deu_logo", "2019년 졸업생 박O혜", "DOUZONE", "플랫폼 서비스 개발", "ctx"),
-        HofData("deu_logo", "2019년 졸업생 김O휘", "SEUN", "전산직", "ctx")
-    )
 
     private lateinit var hofItems : GetHofDTO
     private lateinit var adapter : HofRecyclerAdapter
